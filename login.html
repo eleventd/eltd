@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - ELTD Music Label</title>
+    <link rel="stylesheet" href="assets/style.css" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎵</text></svg>">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">ELTD Music</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="submit-demo.html">Submit Demo</a></li>
+                <li><a href="login.html" class="active">Login</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="auth-container">
+            <form class="auth-form">
+                <h1>Welcome</h1>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required />
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required />
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-bottom: 1rem;">Sign In</button>
+                <p class="text-center" style="color: var(--text-muted); font-size: 0.875rem;">
+                    Don't have an account? <a href="submit-demo.html" style="color: var(--primary-color); text-decoration: none;">Sign up here</a>
+                </p>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="submit-demo.html">Submit Demo</a>
+                <a href="login.html">Login</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ELTD Music Label. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('.auth-form').addEventListener('submit', function (e) {
+            e.preventDefault(); // Formun gönderilmesini engeller
+
+            // Önce varsa eski hatayı kaldır
+            const oldError = document.getElementById('login-error');
+            if (oldError) oldError.remove();
+
+            // Hata mesajı oluştur
+            const error = document.createElement('p');
+            error.id = 'login-error';
+            error.textContent = 'Access denied. Unauthorized user credentials detected. Please contact your administrator.';
+            error.style.color = 'red';
+            error.style.fontSize = '0.875rem';
+            error.style.marginTop = '1rem';
+            error.style.textAlign = 'center';
+
+            // Form sonuna ekle
+            document.querySelector('.auth-form').appendChild(error);
+        });
+    </script>
+</body>
+</html>
